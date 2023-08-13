@@ -7,6 +7,10 @@ const MainCard = ({ idx }) => (
     {(ctx) => (
       <>
         {ctx.forecastData.map((data, index) => {
+          const currentDate = new Date();
+          const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+          const formattedDate = currentDate.toLocaleDateString(undefined, options); // Get today's date with day of the week
+
           let message = "";
           // let imgSrc = "";
 
@@ -28,6 +32,7 @@ const MainCard = ({ idx }) => (
 
           return (
             <div className="card" key={index}>
+              <p>{formattedDate}</p>
               <p>
                 {temperatureCelsius
                   ? `🌡️ ${temperatureCelsius}°C ${message}`
