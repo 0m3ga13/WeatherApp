@@ -27,11 +27,11 @@
 }
 
 .cloudy {
-  background-image: url("images/weather3.jpg");
+  background-image: url("images/weather.jpg");
 }
 
 .rainy {
-  background-image: url("images/weather.jpg");
+  background-image: url("images/weather3.jpg");
 } 
 .card {
   width: 70%;

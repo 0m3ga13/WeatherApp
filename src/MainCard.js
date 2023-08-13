@@ -7,9 +7,9 @@ const MainCard = ({ idx }) => (
     {(ctx) => (
       <>
         {ctx.forecastData.map((data, index) => {
-          const currentDate = new Date();
+          const date = new Date(data.dt * 1000); // Convert Unix timestamp to milliseconds
           const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-          const formattedDate = currentDate.toLocaleDateString(undefined, options); // Get today's date with day of the week
+          const formattedDate = date.toLocaleDateString(undefined, options);
           let backgroundClass = "";
           let message = "";
           // let imgSrc = "";
@@ -26,15 +26,16 @@ const MainCard = ({ idx }) => (
           } else if (temperatureCelsius > 10 && temperatureCelsius < 35) {
             message = "⛅";
             backgroundClass = "cloudy";
-            backgroundClass = "rainy";
+           
             // imgSrc = "images/weather2.jpg";
           } else {
             message = "❄";
+            backgroundClass = "rainy";
             // imgSrc = "images/weather3.jpg";
           }
 
           return (
-            <div className="card ${backgroundClass}" key={index}>
+            <div className={`card ${backgroundClass}`} key={index}>
               <p>{formattedDate}</p>
               <p>
                 {temperatureCelsius
