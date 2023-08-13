@@ -22,13 +22,24 @@
   transition: all 0.3s ease-out;
 }
 
+.sunny {
+  background-image: url("images/weather2.jpg");
+}
+
+.cloudy {
+  background-image: url("images/weather3.jpg");
+}
+
+.rainy {
+  background-image: url("images/weather.jpg");
+} 
 .card {
   width: 70%;
   height: 100%;
   padding: 2rem;
   margin-left: 63px;
   /* background-color: rgb(247, 194, 194); */
-  background-image: url("images/weather2.jpg");
+  /* background-image: url("images/weather2.jpg"); */
   /* background-image: url("images/weatherlayer (1).png"); */
   background-size: cover;
   background-repeat: repeat;

@@ -10,7 +10,7 @@ const MainCard = ({ idx }) => (
           const currentDate = new Date();
           const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
           const formattedDate = currentDate.toLocaleDateString(undefined, options); // Get today's date with day of the week
-
+          let backgroundClass = "";
           let message = "";
           // let imgSrc = "";
 
@@ -21,9 +21,12 @@ const MainCard = ({ idx }) => (
 
           if (temperatureCelsius > 35) {
             message = "🌞";
+            backgroundClass = "sunny";
             // imgSrc = "images/weather.jpg";
           } else if (temperatureCelsius > 10 && temperatureCelsius < 35) {
             message = "⛅";
+            backgroundClass = "cloudy";
+            backgroundClass = "rainy";
             // imgSrc = "images/weather2.jpg";
           } else {
             message = "❄";
@@ -31,7 +34,7 @@ const MainCard = ({ idx }) => (
           }
 
           return (
-            <div className="card" key={index}>
+            <div className="card ${backgroundClass}" key={index}>
               <p>{formattedDate}</p>
               <p>
                 {temperatureCelsius
